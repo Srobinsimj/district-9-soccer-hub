@@ -1,26 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberian Beats - Discover Liberian Music</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; overflow-x: hidden; }
+        header { background: rgba(0,0,0,0.8); padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        nav ul { display: flex; list-style: none; }
+        nav li { margin-left: 2rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; }
+        .hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?liberia,music') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+        .btn { background: #ff6b6b; color: #fff; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; transition: transform 0.3s; }
+        .btn:hover { transform: scale(1.05); }
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .artist-card { background: rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; transition: transform 0.3s; backdrop-filter: blur(10px); }
+        .artist-card:hover { transform: translateY(-10px); }
+        .artist-card img { width: 100%; height: 200px; object-fit: cover; }
+        .artist-info { padding: 1.5rem; }
+        .artist-name { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        .video-embed { position: relative; height: 225px; border-radius: 15px; overflow: hidden; }
+        .video-embed iframe { width: 100%; height: 100%; border: none; }
+        footer { background: rgba(0,0,0,0.8); text-align: center; padding: 2rem; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } nav ul { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 style="color: #ff6b6b;">🇱🇷 Liberian Beats</h2>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#videos">Videos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <section id="home" class="hero">
+        <h1>Welcome to Liberian Beats</h1>
+        <p>Discover the rhythm of Liberia: Hipco, Gbema, and Afrobeat stars like JZyNo and Kobazzie.</p>[web:5][web:10]
+        <a href="#videos" class="btn">Play Highlights</a>
+    </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <section id="artists">
+        <h2>Top Liberian Artists</h2>
+        <div class="grid">
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?singer,liberia" alt="JZyNo">
+                <div class="artist-info">
+                    <div class="artist-name">JZyNo</div>
+                    <p>Top Liberian Afro artist from Monrovia's slums, known for global hits like "Butta My Bread" and "Kpan Kpan Me". Rags-to-riches star.[web:1][web:11][web:14]</p>
+                </div>
+            </div>
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?afrobeat,liberia" alt="Kobazzie">
+                <div class="artist-info">
+                    <div class="artist-name">Kobazzie</div>
+                    <p>Born 1989 in Voinjama, Afropop sensation with hits "Bounce" (ft. Davido) and "Everyday" (ft. Stonebwoy). Multiple award winner.[page:2][web:12]</p>
+                </div>
+            </div>
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?rapper,liberia" alt="Takun J">
+                <div class="artist-info">
+                    <div class="artist-name">Takun J</div>
+                    <p>Pioneer of Hipco genre (born 1981), activist rapper with albums *The Time* (2007) and *My Way* (2012). Songs like "Police Man" tackle corruption.[page:1][web:8]</p>
+                </div>
+            </div>
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?music,liberia" alt="Eric Geso">
+                <div class="artist-info">
+                    <div class="artist-name">Eric Geso</div>
+                    <p>Award-winning singer-songwriter, T/G Artist of the Year 2022. Known for tracks like "Kekeleh" ft. Natif.[web:1][web:13][web:16]</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <section id="videos">
+        <h2>Featured Video Highlights</h2>
+        <div class="video-grid">
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/M1IT2zjqYko" title="LIB Video Mix 15 - Finest Liberian Music 2022" allowfullscreen></iframe>[web:2]
+            </div>
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/sgUOeWfbOEM" title="LIB MIX 11 - Latest Liberian Music Video Mix" allowfullscreen></iframe>[web:7]
+            </div>
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com/embed/7T55LzpJ6q0" title="Hipco: Liberia's Musical Revolution" allowfullscreen></iframe>[web:18]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Liberian Beats. Celebrating Hipco and Gbema music from Liberia.[web:9][web:10]</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
 </html>
