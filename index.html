@@ -5,105 +5,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberian Beats - Discover Liberian Music</title>
     <style>
+        /* Internal CSS: All global styles, animations, responsive */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; overflow-x: hidden; }
-        header { background: rgba(0,0,0,0.8); padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff; 
+            overflow-x: hidden; 
+        }
+        /* Containers: Centering all content */
+        .nav-container, .hero-container, .section-container, .footer-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        }
+        /* Nav Container */
+        .nav-container {
+            background: rgba(0,0,0,0.9); position: fixed; width: 100%; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;
+        }
         nav ul { display: flex; list-style: none; }
         nav li { margin-left: 2rem; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; }
-        .hero { height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?liberia,music') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 2rem; }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.5rem; margin-bottom: 2rem; }
-        .btn { background: #ff6b6b; color: #fff; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; font-weight: bold; transition: transform 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #ff6b6b; }
+        /* Hero Container */
+        .hero-container { 
+            height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?liberia,music') center/cover;
+            display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 60px;
+        }
+        .hero-content { max-width: 800px; }
+        .hero-container h1 { 
+            font-size: 4rem; margin-bottom: 1rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            animation: fadeInUp 1s ease-out; /* Inline animation keyframe */
+        }
+        .hero-container p { font-size: 1.5rem; margin-bottom: 2rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .btn { 
+            background: #ff6b6b; color: #fff; padding: 1rem 2rem; text-decoration: none; border-radius: 50px; 
+            font-weight: bold; transition: all 0.3s; display: inline-block; 
+        }
+        .btn:hover { transform: scale(1.05); background: #ff5252; }
+        /* Section Containers */
+        .section-container { padding: 5rem 0; }
+        .section-container h2 { font-size: 3rem; text-align: center; margin-bottom: 3rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .artist-card { background: rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; transition: transform 0.3s; backdrop-filter: blur(10px); }
-        .artist-card:hover { transform: translateY(-10px); }
+        .artist-card { 
+            background: rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; transition: all 0.3s;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); 
+        }
+        .artist-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: translateY(-10px); }
         .artist-card img { width: 100%; height: 200px; object-fit: cover; }
         .artist-info { padding: 1.5rem; }
-        .artist-name { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .artist-info h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .artist-info ul { list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; }
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
         .video-embed { position: relative; height: 225px; border-radius: 15px; overflow: hidden; }
         .video-embed iframe { width: 100%; height: 100%; border: none; }
-        footer { background: rgba(0,0,0,0.8); text-align: center; padding: 2rem; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } nav ul { flex-direction: column; } }
+        /* Footer Container */
+        .footer-container { 
+            background: rgba(0,0,0,0.8); text-align: center; padding: 2rem; 
+            border-top: 1px solid rgba(255,255,255,0.2); 
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; padding: 1rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
+            .hero-container h1 { font-size: 2.5rem; }
+            .grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h2 style="color: #ff6b6b;">🇱🇷 Liberian Beats</h2>
+    <!-- Container 1: Navigation -->
+    <div class="nav-container">
+        <h2 style="color: #ff6b6b; margin: 0;">🇱🇷 Liberian Beats</h2>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#artists">Artists</a></li>
                 <li><a href="#videos">Videos</a></li>
+                <li><a href="#awards">Awards</a></li>
             </ul>
         </nav>
-    </header>
+    </div>
 
-    <section id="home" class="hero">
-        <h1>Welcome to Liberian Beats</h1>
-        <p>Discover the rhythm of Liberia: Hipco, Gbema, and Afrobeat stars like JZyNo and Kobazzie.</p>[web:5][web:10]
-        <a href="#videos" class="btn">Play Highlights</a>
+    <!-- Container 2: Hero -->
+    <section id="home" class="hero-container">
+        <div class="hero-content">
+            <h1>Welcome to Liberian Beats</h1>
+            <p>Explore Hipco, Gbema, Afrobeat from Liberia's top talents. Latest 2026 charts: JZyNo leads with 84K popularity.[web:1]</p>
+            <a href="#videos" class="btn">Watch Highlights</a>
+        </div>
     </section>
 
-    <section id="artists">
-        <h2>Top Liberian Artists</h2>
+    <!-- Container 3: Artists -->
+    <section id="artists" class="section-container">
+        <h2>Top Liberian Artists (2026 Charts)</h2>
         <div class="grid">
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?singer,liberia" alt="JZyNo">
+                <img src="https://source.unsplash.com/random/300x200/?afrobeat,liberia" alt="JZyNo" loading="lazy">
                 <div class="artist-info">
-                    <div class="artist-name">JZyNo</div>
-                    <p>Top Liberian Afro artist from Monrovia's slums, known for global hits like "Butta My Bread" and "Kpan Kpan Me". Rags-to-riches star.[web:1][web:11][web:14]</p>
+                    <h3>JZyNo (#1)</h3>
+                    <p>Afro sensation from Monrovia slums. Hits: "Butta My Bread" (ft. Lasmid, 2023), "Asor" (2025), "Liberian Boy EP" (2024). Global breakthrough artist.[web:1][web:19]</p>
+                    <ul>
+                        <li>Awards: Multiple 2025 noms</li>
+                        <li>Popularity: 84.3K</li>
+                    </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?afrobeat,liberia" alt="Kobazzie">
+                <img src="https://source.unsplash.com/random/300x200/?singer,female,liberia" alt="MC Caro" loading="lazy">
                 <div class="artist-info">
-                    <div class="artist-name">Kobazzie</div>
-                    <p>Born 1989 in Voinjama, Afropop sensation with hits "Bounce" (ft. Davido) and "Everyday" (ft. Stonebwoy). Multiple award winner.[page:2][web:12]</p>
+                    <h3>MC Caro (#3)</h3>
+                    <p>Trailblazing female rapper. Album won MTN Liberia Music Awards Album of the Year. Sharp lyrics pioneer women in Hipco.[web:1][web:21]</p>
+                    <ul>
+                        <li>Genre: Hip Hop</li>
+                        <li>Popularity: 20.6K</li>
+                    </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?rapper,liberia" alt="Takun J">
+                <img src="https://source.unsplash.com/random/300x200/?rapper,liberia" alt="Eric Geso" loading="lazy">
                 <div class="artist-info">
-                    <div class="artist-name">Takun J</div>
-                    <p>Pioneer of Hipco genre (born 1981), activist rapper with albums *The Time* (2007) and *My Way* (2012). Songs like "Police Man" tackle corruption.[page:1][web:8]</p>
+                    <h3>Eric Geso (#4)</h3>
+                    <p>T/G Artist of the Year 2022. Hits: "Number 9", "Kekeleh" (ft. Natif), "Shake It". 25+ bangers.[web:1]</p>
+                    <ul>
+                        <li>Popularity: 18K</li>
+                        <li>Style: Afropop/Hipco</li>
+                    </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?music,liberia" alt="Eric Geso">
+                <img src="https://source.unsplash.com/random/300x200/?music,liberia" alt="Kobazzie" loading="lazy">
                 <div class="artist-info">
-                    <div class="artist-name">Eric Geso</div>
-                    <p>Award-winning singer-songwriter, T/G Artist of the Year 2022. Known for tracks like "Kekeleh" ft. Natif.[web:1][web:13][web:16]</p>
+                    <h3>Kobazzie (#5)</h3>
+                    <p>Afropop queen (b.1989). Hits: "Bounce" (ft. Davido), "Everyday" (ft. Stonebwoy), "Call God" (2023).[web:20]</p>
+                    <ul>
+                        <li>Popularity: 9.4K</li>
+                        <li>Awards: Multiple wins</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?hipco,liberia" alt="Takun J" loading="lazy">
+                <div class="artist-info">
+                    <h3>Takun J (#29)</h3>
+                    <p>Hipco pioneer (b.1981). Albums: *The Time* (2007). Activist tracks like "Police Man".[web:1]</p>
+                    <ul>
+                        <li>Genre: Hipco/Rap</li>
+                        <li>Popularity: 532</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="artist-card">
+                <img src="https://source.unsplash.com/random/300x200/?gospel,liberia" alt="Kanvee G Adams" loading="lazy">
+                <div class="artist-info">
+                    <h3>Kanvee G Adams (#6)</h3>
+                    <p>Gospel/Afro star. Rising with powerful vocals and hits.[web:1]</p>
+                    <ul>
+                        <li>Popularity: 9K</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="videos">
-        <h2>Featured Video Highlights</h2>
+    <!-- Container 4: Videos -->
+    <section id="videos" class="section-container">
+        <h2>Video Highlights & Mixes</h2>
         <div class="video-grid">
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/M1IT2zjqYko" title="LIB Video Mix 15 - Finest Liberian Music 2022" allowfullscreen></iframe>[web:2]
+                <iframe src="https://www.youtube.com/embed/M1IT2zjqYko" title="LIB Video Mix 15" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/sgUOeWfbOEM" title="LIB MIX 11 - Latest Liberian Music Video Mix" allowfullscreen></iframe>[web:7]
+                <iframe src="https://www.youtube.com/embed/sgUOeWfbOEM" title="LIB MIX 11" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/7T55LzpJ6q0" title="Hipco: Liberia's Musical Revolution" allowfullscreen></iframe>[web:18]
+                <iframe src="https://www.youtube.com/embed/7T55LzpJ6q0" title="Hipco Revolution" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Liberian Beats. Celebrating Hipco and Gbema music from Liberia.[web:9][web:10]</p>
-    </footer>
+    <!-- Container 5: Awards -->
+    <section id="awards" class="section-container">
+        <h2>Liberia Music Awards 2025 Winners</h2>
+        <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
+            <li>Artist of the Year: King Dennis[web:22]</li>
+            <li>Male Artist: King Dennis</li>
+            <li>Female Artist: Anitram</li>
+            <li>Hip-Hop: Ruben Vincent</li>
+            <li>Album: MC Caro</li>
+        </ul>
+    </section>
+
+    <!-- Container 6: Footer -->
+    <div class="footer-container">
+        <p>&copy; 2026 Liberian Beats. Celebrating Hipco legends and 2025 award winners.[web:22][web:27]</p>
+    </div>
 
     <script>
-        // Smooth scrolling for nav links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
