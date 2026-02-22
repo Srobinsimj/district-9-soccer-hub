@@ -28,13 +28,15 @@
         nav a:hover { color: #ff6b6b; }
         /* Hero Container */
         .hero-container { 
-            height: 100vh; background: url('https://source.unsplash.com/random/1920x1080/?liberia,music') center/cover;
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop') center/cover;
             display: flex; align-items: center; justify-content: center; text-align: center; margin-top: 60px;
         }
         .hero-content { max-width: 800px; }
         .hero-container h1 { 
             font-size: 4rem; margin-bottom: 1rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-            animation: fadeInUp 1s ease-out; /* Inline animation keyframe */
+            animation: fadeInUp 1s ease-out;
         }
         .hero-container p { font-size: 1.5rem; margin-bottom: 2rem; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -52,7 +54,10 @@
             backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); 
         }
         .artist-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.3); transform: translateY(-10px); }
-        .artist-card img { width: 100%; height: 200px; object-fit: cover; }
+        .artist-card img { 
+            width: 100%; height: 200px; object-fit: cover; object-position: top;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
         .artist-info { padding: 1.5rem; }
         .artist-info h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .artist-info ul { list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; }
@@ -91,78 +96,85 @@
     <!-- Container 2: Hero -->
     <section id="home" class="hero-container">
         <div class="hero-content">
-            <h1>Welcome to Liberian Beats</h1>
-            <p>Explore Hipco, Gbema, Afrobeat from Liberia's top talents. Latest 2026 charts: JZyNo leads with 84K popularity.[web:1]</p>
+            <h1 style="text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">Welcome to Liberian Beats</h1>
+            <p>Explore Hipco, Gbema, Afrobeat from Liberia's top talents. Latest 2026 charts featuring JZyNo, MC Caro & more!</p>
             <a href="#videos" class="btn">Watch Highlights</a>
         </div>
     </section>
 
     <!-- Container 3: Artists -->
     <section id="artists" class="section-container">
-        <h2>Top Liberian Artists (2026 Charts)</h2>
+        <h2 style="color: #ff6b6b;">Top Liberian Artists (2026 Charts)</h2>
         <div class="grid">
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?afrobeat,liberia" alt="JZyNo" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=face" alt="JZyNo" loading="lazy">
                 <div class="artist-info">
-                    <h3>JZyNo (#1)</h3>
-                    <p>Afro sensation from Monrovia slums. Hits: "Butta My Bread" (ft. Lasmid, 2023), "Asor" (2025), "Liberian Boy EP" (2024). Global breakthrough artist.[web:1][web:19]</p>
+                    <h3 style="color: #ff6b6b;">JZyNo (#1)</h3>
+                    <p>Afro sensation from Monrovia slums. Global hits: "Butta My Bread" (ft. Lasmid), "Asor", "Liberian Boy EP".</p>
                     <ul>
-                        <li>Awards: Multiple 2025 noms</li>
+                        <li>Awards: Multiple 2025 nominations</li>
                         <li>Popularity: 84.3K</li>
+                        <li>Genre: Afrobeat</li>
                     </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?singer,female,liberia" alt="MC Caro" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=200&fit=crop" alt="MC Caro" loading="lazy">
                 <div class="artist-info">
-                    <h3>MC Caro (#3)</h3>
-                    <p>Trailblazing female rapper. Album won MTN Liberia Music Awards Album of the Year. Sharp lyrics pioneer women in Hipco.[web:1][web:21]</p>
+                    <h3 style="color: #4ecdc4;">MC Caro (#3)</h3>
+                    <p>Trailblazing female rapper. MTN Liberia Music Awards Album of the Year winner. Hipco pioneer for women.</p>
                     <ul>
                         <li>Genre: Hip Hop</li>
                         <li>Popularity: 20.6K</li>
+                        <li>Style: Sharp lyrics</li>
                     </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?rapper,liberia" alt="Eric Geso" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=200&fit=crop" alt="Eric Geso" loading="lazy">
                 <div class="artist-info">
-                    <h3>Eric Geso (#4)</h3>
-                    <p>T/G Artist of the Year 2022. Hits: "Number 9", "Kekeleh" (ft. Natif), "Shake It". 25+ bangers.[web:1]</p>
+                    <h3 style="color: #ff6b6b;">Eric Geso (#4)</h3>
+                    <p>T/G Artist of the Year 2022. Massive hits: "Number 9", "Kekeleh" (ft. Natif), "Shake It". 25+ bangers.</p>
                     <ul>
                         <li>Popularity: 18K</li>
                         <li>Style: Afropop/Hipco</li>
+                        <li>Hit Count: 25+</li>
                     </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?music,liberia" alt="Kobazzie" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=200&fit=crop" alt="Kobazzie" loading="lazy">
                 <div class="artist-info">
-                    <h3>Kobazzie (#5)</h3>
-                    <p>Afropop queen (b.1989). Hits: "Bounce" (ft. Davido), "Everyday" (ft. Stonebwoy), "Call God" (2023).[web:20]</p>
+                    <h3 style="color: #4ecdc4;">Kobazzie (#5)</h3>
+                    <p>Afropop queen (b.1989). Collab hits: "Bounce" (ft. Davido), "Everyday" (ft. Stonebwoy), "Call God".</p>
                     <ul>
                         <li>Popularity: 9.4K</li>
                         <li>Awards: Multiple wins</li>
+                        <li>Genre: Afropop</li>
                     </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?hipco,liberia" alt="Takun J" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=200&fit=crop" alt="Takun J" loading="lazy">
                 <div class="artist-info">
-                    <h3>Takun J (#29)</h3>
-                    <p>Hipco pioneer (b.1981). Albums: *The Time* (2007). Activist tracks like "Police Man".[web:1]</p>
+                    <h3 style="color: #ff6b6b;">Takun J (#29)</h3>
+                    <p>Hipco pioneer (b.1981). Albums: *The Time* (2007). Activist rap: "Police Man" tackles corruption.</p>
                     <ul>
                         <li>Genre: Hipco/Rap</li>
-                        <li>Popularity: 532</li>
+                        <li>Pioneer Status: Hipco creator</li>
+                        <li>Activism: Social issues</li>
                     </ul>
                 </div>
             </div>
             <div class="artist-card">
-                <img src="https://source.unsplash.com/random/300x200/?gospel,liberia" alt="Kanvee G Adams" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop" alt="Kanvee G Adams" loading="lazy">
                 <div class="artist-info">
-                    <h3>Kanvee G Adams (#6)</h3>
-                    <p>Gospel/Afro star. Rising with powerful vocals and hits.[web:1]</p>
+                    <h3 style="color: #4ecdc4;">Kanvee G Adams (#6)</h3>
+                    <p>Gospel/Afro fusion star. Rising fast with powerful vocals and inspirational hits across Liberia.</p>
                     <ul>
                         <li>Popularity: 9K</li>
+                        <li>Genre: Gospel/Afro</li>
+                        <li>Rising: Fast climber</li>
                     </ul>
                 </div>
             </div>
@@ -171,43 +183,45 @@
 
     <!-- Container 4: Videos -->
     <section id="videos" class="section-container">
-        <h2>Video Highlights & Mixes</h2>
+        <h2 style="color: #4ecdc4;">Video Highlights & Mixes</h2>
         <div class="video-grid">
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/M1IT2zjqYko" title="LIB Video Mix 15" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/M1IT2zjqYko" title="LIB Video Mix 15 - Finest Liberian Music" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/sgUOeWfbOEM" title="LIB MIX 11" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/sgUOeWfbOEM" title="LIB MIX 11 - Latest Liberian Music Video Mix" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="video-embed">
-                <iframe src="https://www.youtube.com/embed/7T55LzpJ6q0" title="Hipco Revolution" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.youtube.com/embed/7T55LzpJ6q0" title="Hipco: Liberia's Musical Revolution" allowfullscreen loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <!-- Container 5: Awards -->
     <section id="awards" class="section-container">
-        <h2>Liberia Music Awards 2025 Winners</h2>
-        <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
-            <li>Artist of the Year: King Dennis[web:22]</li>
-            <li>Male Artist: King Dennis</li>
-            <li>Female Artist: Anitram</li>
-            <li>Hip-Hop: Ruben Vincent</li>
-            <li>Album: MC Caro</li>
+        <h2 style="color: #ff6b6b;">Liberia Music Awards 2025 Winners</h2>
+        <ul style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; text-align: left;">
+            <li style="margin-bottom: 1rem;"><strong>Artist of the Year:</strong> King Dennis</li>
+            <li style="margin-bottom: 1rem;"><strong>Male Artist:</strong> King Dennis</li>
+            <li style="margin-bottom: 1rem;"><strong>Female Artist:</strong> Anitram</li>
+            <li style="margin-bottom: 1rem;"><strong>Hip-Hop/Rap:</strong> Ruben Vincent</li>
+            <li style="margin-bottom: 1rem;"><strong>Album of the Year:</strong> MC Caro</li>
         </ul>
     </section>
 
     <!-- Container 6: Footer -->
     <div class="footer-container">
-        <p>&copy; 2026 Liberian Beats. Celebrating Hipco legends and 2025 award winners.[web:22][web:27]</p>
+        <p style="font-size: 1.1rem;">&copy; 2026 Liberian Beats. Celebrating Hipco legends, Gbema rhythms, and 2025 award winners. 🇱🇷🎵</p>
     </div>
 
     <script>
-        // Smooth scrolling
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
             });
         });
     </script>
